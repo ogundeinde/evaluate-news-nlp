@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Natural Language Processing</title>
+  </head>
+  <body>
+    <header>
+      <h1>Natural Language Processing</h1>
+    </header>
+
+    <main>
+      <h2>News Articl</h2>
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos, aliquid tempora minus quo quam consequuntur nihil ipsa voluptatum autem velit officia esse? Velit illum odit omnis quaerat ipsam unde vero.
+      </p>
+
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus dicta molestiae quas non iste, et quis laboriosam neque pariatur libero assumenda repudiandae in minus debitis saepe nobis adipisci aspernatur culpa!
+      </p>
+
+      <form class="" onsubmit="return Client.handleSubmit(event)">
+        <label for="test-statement">
+          Try it out! Type in a statement to see what the Aylien NLP understands
+          from it:
+        </label>
+        <input
+          required
+          id="test-statement"
+          type="text"
+          placeholder="John is a very good football player."
+        />
+        <input class="submit-button" type="submit" value="Submit" />
+      </form>
+
+      <section class="text-results">
+        <ul>
+          <li>
+            <h3>Text Polarity:</h3>
+            <p id="text_polarity"></p>
+            <h4>Confidence:</h4>
+            <p id="text_polarity_check"></p>
+          </li>
+
+          <li>
+            <h3>Text Subjectivity:</h3>
+            <p id="text_check"></p>
+            <h4>Confidence:</h4>
+            <p id="text_subjectivity_check"></p>
+          </li>
+        </ul>
+      </section>
+
+      <hr />
+
+      <form class="" onsubmit="return Client.checkForUrl(event)">
+        <label for="test-url">
+          Or, try putting in the url of an article - like from your favorite
+          news source.
+        </label>
+        <input required id="test-url" type="url" placeholder="https://..." />
+        <input class="submit-button" type="submit" value="Submit" />
+        <p>
+          Watch out though, each of these requests take up 3 of your allotted
+          1000 API hits today
+        </p>
+      </form>
+
+      <section class="url-results">
+        <ul>
+          <li>
+            <h3>Text Polarity:</h3>
+            <p id="polarity"></p>
+            <h4>Confidence:</h4>
+            <p id="polarity_check"></p>
+          </li>
+
+          <li>
+            <h3>Text Subjectivity:</h3>
+            <p id="check"></p>
+            <h4>Confidence:</h4>
+            <p id="subjectivity_check"></p>
+          </li>
+
+          <li>
+            <h3>Text Excerpt:</h3>
+            <p id="excerpt"></p>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; Surya Kant Bansal</p>
+    </footer>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () =>
+          navigator.serviceWorker.register("/service-worker.js")
+        );
+      }
+    </script>
+  </body>
+</html>
